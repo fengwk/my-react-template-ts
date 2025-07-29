@@ -1,0 +1,58 @@
+{
+  // 编译器选项
+  "compilerOptions": {
+    // 编译目标ES5保证浏览器兼容性
+    "target": "es5",
+    // 包含DOM和最新ES特性的类型定义
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    // 允许编译JavaScript文件
+    "allowJs": true,
+    // 跳过库的类型检查
+    "skipLibCheck": true,
+    // 改善CommonJS/ES模块互操作性
+    "esModuleInterop": true,
+    // 允许从没有默认导出的模块中默认导入
+    "allowSyntheticDefaultImports": true,
+    // 启用所有严格类型检查选项
+    "strict": true,
+    // 强制区分文件名大小写
+    "forceConsistentCasingInFileNames": true,
+    // 使用ES模块系统
+    "module": "esnext",
+    // 使用Node.js风格的模块解析
+    "moduleResolution": "node",
+    // 允许导入JSON文件
+    "resolveJsonModule": true,
+    // 确保每个文件可独立编译
+    "isolatedModules": true,
+    // 只做类型检查不输出文件(由webpack处理)
+    "noEmit": true,
+    // 使用React JSX转换
+    "jsx": "react-jsx",
+    // 设置基础路
+    "baseUrl": "src",
+    // 路径映射
+    "paths": {
+      // @/ 映射到 src/ 目录
+      "@/*": [
+        "./*"
+      ],
+      // ~/ 直接映射到 node_modules/ 目录
+      "~/*": [
+        "../node_modules/*"
+      ]
+    }
+  },
+  // 只编译src目录下的文件
+  "include": [
+    "src"
+  ],
+  "typeRoots": [
+    "./node_modules/@types",
+    "./src/types"
+  ],
+}

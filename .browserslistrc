@@ -1,0 +1,17 @@
+# 浏览器兼容性配置
+# 用于Babel、Autoprefixer等工具的统一配置
+
+# 生产环境目标浏览器
+> 0.25%
+not dead
+not op_mini all
+
+# 开发环境目标浏览器（现代浏览器）
+[development]
+last 2 chrome versions
+last 2 firefox versions
+last 2 safari versions
+
+# 测试环境目标浏览器
+[test]
+current node
