@@ -6,6 +6,7 @@
  * 3. 快速构建优化
  */
 
+require('dotenv').config(); // 加载.env文件
 const path = require('path');
 const buildConfig = require('./webpack.common');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
@@ -17,7 +18,7 @@ module.exports = buildConfig({
   /**
    * 开发服务器配置
    * 完整文档：https://webpack.js.org/configuration/dev-server/
-   * 
+   *
    * 主要功能：
    * 1. 静态文件服务
    * 2. API代理
@@ -44,21 +45,20 @@ module.exports = buildConfig({
     */
 
     // 开发服务器设置
-    port: 3000, // 端口号
-    open: true, // 自动打开浏览器
-    compress: true, // 启用gzip压缩
+    port: process.env.SERVER_PORT || 9000, // 端口号
+    open: false, // 自动打开浏览器
+    compress: false, // 启用gzip压缩
 
-    /*
-    // 代理配置示例 (解决跨域问题)
-    proxy: {
-      '/api': { // 代理以/api开头的请求
+    // 代理配置
+    proxy: [
+      {
+        context: ['/api'],// 代理以/api开头的请求
         target: 'http://localhost:8080', // 目标服务器地址
-        pathRewrite: { '^/api': '' }, // 重写路径(去掉/api前缀)
         changeOrigin: true, // 修改请求头中的host为目标地址
-        secure: false // 如果目标使用https需要配置
+        // secure: false // 如果目标使用https需要配置
+        // pathRewrite: { '^/api': '' }, // 重写路径(去掉/api前缀)
       }
-    },
-    */
+    ],
 
     // 其他常用配置
     client: {

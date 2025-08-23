@@ -26,6 +26,15 @@
 ```bash
 npm install
 ```
+### 初始化项目
+
+首次克隆项目后，运行以下脚本来设置项目名称和描述：
+
+```bash
+./init.sh
+```
+
+脚本会提示你输入新的项目名称和描述，并自动更新 `package.json` 和 `webpack/webpack.common.js` 中的相关信息。
 
 ### 开发模式
 
@@ -35,7 +44,7 @@ npm start
 npm run start
 ```
 
-应用将在 [http://localhost:3000](http://localhost:3000) 启动。
+应用将在 [http://localhost:9000](http://localhost:9000) 启动。
 
 ### 构建生产版本
 
