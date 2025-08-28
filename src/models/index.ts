@@ -5,8 +5,12 @@ import homeSlice from './home';
 export const homeActions = homeSlice.actions;
 
 // 导出 store
-export default configureStore({
+const store = configureStore({
   reducer: {
     home: homeSlice.reducer,
   },
+  devTools: process.env.NODE_ENV !== 'production',
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+export default store;

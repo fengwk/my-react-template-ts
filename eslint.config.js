@@ -170,6 +170,7 @@ module.exports = [
       '**/*.config.ts',
       'webpack/**',
       'coverage/**',
+      '**/*.d.ts', // 忽略所有类型声明文件
     ],
   },
 ];

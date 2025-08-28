@@ -55,6 +55,9 @@ module.exports = buildConfig({
         context: ['/api'],// 代理以/api开头的请求
         target: 'http://localhost:8080', // 目标服务器地址
         changeOrigin: true, // 修改请求头中的host为目标地址
+        // headers: {
+        //   'Cookie': '',
+        // },
         // secure: false // 如果目标使用https需要配置
         // pathRewrite: { '^/api': '' }, // 重写路径(去掉/api前缀)
       }

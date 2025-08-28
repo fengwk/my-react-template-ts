@@ -26,13 +26,13 @@ const cssExtractLoader = process.env.NODE_ENV === 'production' ? MiniCssExtractP
  */
 const postcssLoader = {
   loader: 'postcss-loader', // 使用postcss-loader处理CSS
-    options: {
-      postcssOptions: {
-        plugins: [
-          'autoprefixer' // 使用.browserslistrc配置
-        ]
-      }
+  options: {
+    postcssOptions: {
+      plugins: [
+        'autoprefixer' // 使用.browserslistrc配置
+      ]
     }
+  }
 };
 
 /**
@@ -87,10 +87,10 @@ module.exports = function (config) {
      */
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.jsx'], // 自动解析的扩展名
-    alias: {
-      '@': path.resolve(__dirname, '../src'),
-      '~': path.resolve(__dirname, '../node_modules')
-    }
+      alias: {
+        '@': path.resolve(__dirname, '../src'),
+        '~': path.resolve(__dirname, '../node_modules')
+      }
     },
 
     /**
@@ -209,6 +209,7 @@ module.exports = function (config) {
       }),
       new HtmlWebpackPlugin({ // 生成HTML文件
         template: path.resolve(__dirname, '../src/index.html'), // 使用自定义模板
+        favicon: path.resolve(__dirname, '../src/favicon.png'), // favicon
         title: 'TypeScript React App', // 设置HTML标题
         filename: 'index.html', // 输出文件名
         inject: 'body', // 注入位置
